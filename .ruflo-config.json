@@ -1,0 +1,22 @@
+{
+  "name": "Ruflo Multi-Agent Orchestration",
+  "version": "3.7.0-alpha.26",
+  "installed": true,
+  "mcp_server": {
+    "type": "stdio",
+    "command": "npx",
+    "args": ["ruflo@latest", "mcp", "start"]
+  },
+  "description": "Multi-agent AI orchestration platform for Claude. Enables deployment of intelligent agent swarms, coordination of autonomous workflows, and building of conversational AI systems.",
+  "capabilities": [
+    "100+ specialized agents",
+    "Vector-based memory with rapid retrieval",
+    "Self-learning capabilities",
+    "Secure agent federation",
+    "Background workers",
+    "32 available plugins"
+  ],
+  "installation_path": "global npm",
+  "installation_date": "2026-05-12",
+  "installation_method": "npm install -g ruflo"
+}
