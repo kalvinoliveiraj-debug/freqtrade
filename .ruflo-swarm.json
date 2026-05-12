@@ -1,0 +1,47 @@
+{
+  "swarm_id": "swarm-mp2l91ph",
+  "swarm_name": "Web Development Agent Swarm",
+  "v3_mode": true,
+  "topology": "hierarchical-mesh",
+  "max_agents": 15,
+  "deployed_agents": 8,
+  "objective": "Build API",
+  "environment": "development",
+  "agents": {
+    "coordinator": {
+      "count": 1,
+      "role": "coordinator",
+      "purpose": "Orchestrate workflow and task distribution"
+    },
+    "architect": {
+      "count": 1,
+      "role": "architect",
+      "purpose": "System design and architecture decisions"
+    },
+    "coder": {
+      "count": 3,
+      "role": "coder",
+      "purpose": "Core implementation and development work"
+    },
+    "tester": {
+      "count": 2,
+      "role": "tester",
+      "purpose": "Quality assurance and testing"
+    },
+    "reviewer": {
+      "count": 1,
+      "role": "reviewer",
+      "purpose": "Code review and quality verification"
+    }
+  },
+  "features_enabled": [
+    "Flash Attention (2.49x-7.47x speedup)",
+    "AgentDB Integration (150x faster)",
+    "SONA Learning System",
+    "Auto-scaling",
+    "Message-bus Protocol",
+    "Hierarchical-mesh Topology"
+  ],
+  "created_at": "2026-05-12T12:02:00Z",
+  "status": "initialized"
+}
