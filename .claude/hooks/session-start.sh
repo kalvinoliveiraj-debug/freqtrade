@@ -4,9 +4,16 @@ set -euo pipefail
 # Install dependencies for testing and linting in Claude Code web sessions
 cd "${CLAUDE_PROJECT_DIR:-.}"
 
-# Install only the essential testing and linting tools
-# Skip full project installation due to TA-Lib and other C extension dependencies
-pip install -r requirements.txt --quiet 2>/dev/null || true
+# Install essential dependencies for tests and linting
+# Install key packages needed for testing
+pip install \
+  numpy==2.3.2 \
+  pandas==2.3.1 \
+  requests==2.32.4 \
+  SQLAlchemy==2.0.42 \
+  --quiet
+
+# Install testing and linting tools
 pip install \
   ruff==0.12.7 \
   mypy==1.17.1 \
