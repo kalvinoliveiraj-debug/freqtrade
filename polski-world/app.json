@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Polski World",
+    "slug": "polski-world",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "scheme": "polskiworld",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0E1A2B"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.polskiworld.app"
+    },
+    "android": {
+      "package": "com.polskiworld.app"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
