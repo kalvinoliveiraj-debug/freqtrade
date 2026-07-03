@@ -41,3 +41,7 @@ High-contrast moody palette (deep blue, dark gray, neon highlight) plus minimali
 Deliberately crude MS-Paint-style stick figures + deadpan narration make the content feel personal and unpolished, which builds trust and supports self-deprecating humor. Low production cost is a feature, not a limitation — polish would undercut the comedic tone.
 
 **Use this paradigm when**: budget is low, tone is comedic/relatable, and the presenter's "voice" (writing/narration) is strong enough to carry minimal visuals. See `production-blueprint.md` for a step-by-step blueprint using this exact aesthetic.
+
+## Live examples with real analytics
+
+`case-studies-recent-outliers.md` covers three currently-active channels with pulled outlier/view data: Zenn and Axen (both variants of the Casually Explained wobbly-stick-figure aesthetic applied to "big question" science/history hooks, including a near-real-time example of one channel's format being cloned by another), and NZTV Official (a real-footage wildlife-documentary faceless channel — a fifth paradigm not covered by the four above, since "faceless" doesn't require a drawn/animated style).

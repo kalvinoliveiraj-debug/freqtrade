@@ -33,7 +33,7 @@ argument-hint: "[video-concept-or-channel-brief]"
 Turns a raw content idea into a structured production plan: brand identity → script → shot list → edit pacing → export settings. Two supported visual paradigms:
 
 1. **Surreal E-Commerce** — physical products performing impossible, physics-defying feats (CGI/AI-augmented). See `references/surreal-ecommerce.md`.
-2. **Faceless channels** — asset-driven documentary/story/essay channels with no on-camera presenter. See `references/faceless-channels.md`.
+2. **Faceless channels** — asset-driven documentary/story/essay channels with no on-camera presenter. See `references/faceless-channels.md`, plus live outlier data in `references/case-studies-recent-outliers.md`.
 
 This skill does not generate media — it produces the plan (scripts, shot lists, pacing notes, export specs) a human or a generation tool then executes.
 
@@ -63,6 +63,7 @@ This skill does not generate media — it produces the plan (scripts, shot lists
 | How do I structure the actual script + shoot? | Abbreviations + step-by-step blueprint | `production-blueprint.md` |
 | How do I generate one consistent MS-Paint image per script timestamp? | Full director prompt: continuity guide, art style, canvas, line style, character design, color palette, text rules, composition rules, validation checklist | `wobbly-image-sequence-prompt.md` |
 | How do I plan a series / scale output? | Series questionnaire, four-tier scripting, Hormozy More/Better/New | `growth-scripting.md` |
+| What does a real breakout actually look like, right now? | Live outlier data (Zenn, Axen, NZTV Official): title formulas, growth speed, format-cloning risk | `case-studies-recent-outliers.md` |
 
 ## Notes on source data
 
