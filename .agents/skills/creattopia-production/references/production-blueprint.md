@@ -28,12 +28,13 @@ Mark each script beat with a shot abbreviation (`th`/`cs`/`vo`/`hv`) as you writ
 
 ## Step 2 — Graphic asset generation (wobbly MS Paint aesthetic)
 
-Once the script/shot list is locked, the visual designer generates the sequence of hand-drawn assets:
+Once the script/shot list is locked and every beat carries a timestamp, generate exactly one image per timestamp using the full director spec in `wobbly-image-sequence-prompt.md` — it defines the continuity guide, fixed art style, canvas/format, line style, character design, color palette, text rules, composition rules, and a final validation checklist. Don't improvise a lighter version of that spec; it's written to prevent style drift across a long sequence, which is the main failure mode of this aesthetic.
 
-1. Sketch each beat as a simple, deliberately imperfect line drawing (wobbly strokes, crude proportions) — the imperfection is the style, not a flaw to fix.
-2. Keep a consistent limited color/line-weight system across the whole episode (and ideally the whole channel) so the crude style still reads as a coherent visual brand, not a random collection of doodles.
-3. Build one asset per script beat that was marked `cs` or `vo` in Step 1 — talking-head (`th`) beats don't need a drawn asset.
-4. Export assets as transparent-background layers so they can be composited and animated independently in the edit rather than as flattened backgrounds.
+Practical notes on top of that spec:
+
+1. Build one image per script beat that was marked `cs` or `vo` in Step 1 — talking-head (`th`) beats don't need a drawn asset.
+2. Export assets as transparent-background layers (or plan to key out the pure-white background) so they can be composited and animated independently in the edit rather than as flattened backgrounds.
+3. Run the spec's Final Validation checklist against the whole batch before handing assets to editing, not per-image as you go — style drift is only obvious in hindsight across the full sequence.
 
 ## Step 3 — Post-production and audio-visual assembly
 
