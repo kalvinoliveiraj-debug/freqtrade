@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-gold: var(--gold);
+  --color-line: var(--line);
+}
+
+/* Tropical Refinado — default */
+:root,
+[data-theme="tropical"] {
+  --bg: #0f2e2b;
+  --surface: #15423d;
+  --surface-2: #1b4d47;
+  --ink: #f3ede0;
+  --ink-muted: rgba(243, 237, 224, 0.62);
+  --accent: #c9a24b;
+  --accent-ink: #0f2e2b;
+  --gold: #c9a24b;
+  --line: rgba(243, 237, 224, 0.14);
+}
+
+/* Romance Quente */
+[data-theme="romance"] {
+  --bg: #fbf3e7;
+  --surface: #ffffff;
+  --surface-2: #f6e9d7;
+  --ink: #2b1512;
+  --ink-muted: rgba(43, 21, 18, 0.6);
+  --accent: #b8451f;
+  --accent-ink: #fbf3e7;
+  --gold: #c9a24b;
+  --line: rgba(43, 21, 18, 0.12);
+}
+
+/* Luxo Noturno */
+[data-theme="night"] {
+  --bg: #0a0a0a;
+  --surface: #161616;
+  --surface-2: #1e1e1e;
+  --ink: #ede6d6;
+  --ink-muted: rgba(237, 230, 214, 0.6);
+  --accent: #ff5a1f;
+  --accent-ink: #0a0a0a;
+  --gold: #ede6d6;
+  --line: rgba(237, 230, 214, 0.14);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+* {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+input,
+button {
+  font-family: inherit;
+}
