@@ -23,7 +23,7 @@ export function FlowToggle({ flow, onChange }: FlowToggleProps) {
           key={f}
           type="button"
           onClick={() => onChange(f)}
-          className="relative z-10 rounded-full py-2.5 text-sm font-semibold"
+          className="relative z-10 rounded-full py-3 text-sm font-semibold tracking-wide transition-colors duration-300"
           style={{ color: flow === f ? "var(--accent-ink)" : "var(--ink-muted)" }}
         >
           {f === "agora" ? "Agora" : "Agendar"}

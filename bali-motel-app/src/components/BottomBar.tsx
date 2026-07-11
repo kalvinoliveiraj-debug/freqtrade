@@ -28,8 +28,12 @@ export function PrimaryButton({ children, onClick, disabled, type = "button" }: 
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className="flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-[15px] font-semibold transition-opacity active:opacity-80 disabled:opacity-40"
-      style={{ background: "var(--accent)", color: "var(--accent-ink)" }}
+      className="flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-[15px] font-semibold transition-transform duration-150 active:scale-[0.98] disabled:opacity-40 disabled:shadow-none"
+      style={{
+        background: "var(--accent)",
+        color: "var(--accent-ink)",
+        boxShadow: disabled ? "none" : "var(--shadow-accent)",
+      }}
     >
       {children}
     </button>

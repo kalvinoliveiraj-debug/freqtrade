@@ -27,6 +27,9 @@
   --accent-ink: #0f2e2b;
   --gold: #c9a24b;
   --line: rgba(243, 237, 224, 0.14);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.2), 0 16px 32px -16px rgba(0, 0, 0, 0.55);
+  --shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.25), 0 24px 48px -18px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 12px 28px -10px rgba(201, 162, 75, 0.45);
 }
 
 /* Romance Quente */
@@ -40,6 +43,9 @@
   --accent-ink: #fbf3e7;
   --gold: #c9a24b;
   --line: rgba(43, 21, 18, 0.12);
+  --shadow-card: 0 1px 2px rgba(43, 21, 18, 0.04), 0 16px 32px -18px rgba(43, 21, 18, 0.28);
+  --shadow-lift: 0 1px 2px rgba(43, 21, 18, 0.05), 0 24px 48px -18px rgba(43, 21, 18, 0.32);
+  --shadow-accent: 0 12px 28px -10px rgba(184, 69, 31, 0.35);
 }
 
 /* Luxo Noturno */
@@ -53,6 +59,9 @@
   --accent-ink: #0a0a0a;
   --gold: #ede6d6;
   --line: rgba(237, 230, 214, 0.14);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 16px 32px -16px rgba(0, 0, 0, 0.75);
+  --shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.45), 0 24px 48px -18px rgba(0, 0, 0, 0.8);
+  --shadow-accent: 0 12px 28px -10px rgba(255, 90, 31, 0.4);
 }
 
 html {
@@ -85,4 +94,41 @@ body {
 input,
 button {
   font-family: inherit;
+}
+
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.screen-enter {
+  animation: screen-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.rise-in {
+  animation: rise-in 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-enter,
+  .rise-in {
+    animation: none;
+  }
 }

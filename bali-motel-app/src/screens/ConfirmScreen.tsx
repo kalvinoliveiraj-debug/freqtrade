@@ -51,13 +51,13 @@ export function ConfirmScreen({
   }
 
   return (
-    <div className="flex min-h-svh flex-col">
+    <div className="screen-enter flex min-h-svh flex-col">
       <ScreenHeader title="Confirmar reserva" onBack={onBack} />
 
       <main className="flex-1 overflow-y-auto px-5 pb-6">
         <div
           className="rounded-2xl border p-4"
-          style={{ borderColor: "var(--line)", background: "var(--surface)" }}
+          style={{ borderColor: "var(--line)", background: "var(--surface)", boxShadow: "var(--shadow-card)" }}
         >
           <h2 className="font-display text-lg font-medium" style={{ color: "var(--ink)" }}>
             {suite.name}
@@ -95,7 +95,7 @@ export function ConfirmScreen({
         </div>
 
         <div className="mt-6">
-          <h3 className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
+          <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em]" style={{ color: "var(--ink-muted)" }}>
             Como prefere confirmar?
           </h3>
           <div className="mt-3 flex flex-col gap-2.5">
@@ -132,7 +132,7 @@ function Row({ label, value, strong }: { label: string; value: string; strong?: 
     <div className="flex items-center justify-between">
       <dt style={{ color: "var(--ink-muted)" }}>{label}</dt>
       <dd
-        className={strong ? "font-display text-base font-semibold" : "font-medium"}
+        className={strong ? "font-display text-base font-semibold tabular-nums" : "font-medium"}
         style={{ color: "var(--ink)" }}
       >
         {value}
@@ -145,7 +145,7 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <label
       className="flex flex-col gap-1 rounded-2xl border px-4 py-3"
-      style={{ borderColor: "var(--line)", background: "var(--surface)" }}
+      style={{ borderColor: "var(--line)", background: "var(--surface)", boxShadow: "var(--shadow-card)" }}
     >
       <span className="text-[11px] font-medium" style={{ color: "var(--ink-muted)" }}>
         {label}
@@ -172,10 +172,11 @@ function ModeOption({
     <button
       type="button"
       onClick={onClick}
-      className="flex items-start gap-3 rounded-2xl border p-4 text-left"
+      className="flex items-start gap-3 rounded-2xl border p-4 text-left transition-transform duration-150 active:scale-[0.98]"
       style={{
         borderColor: active ? "var(--accent)" : "var(--line)",
         background: "var(--surface)",
+        boxShadow: active ? "var(--shadow-accent)" : "var(--shadow-card)",
       }}
     >
       <span

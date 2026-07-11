@@ -20,16 +20,19 @@ interface SuiteVisualProps {
   hue: SuiteHue;
   rounded?: string;
   className?: string;
+  variant?: "card" | "hero";
 }
 
-export function SuiteVisual({ hue, rounded = "rounded-2xl", className = "" }: SuiteVisualProps) {
+export function SuiteVisual({ hue, rounded = "rounded-2xl", className = "", variant = "card" }: SuiteVisualProps) {
   const Icon = HUE_ICON[hue];
+  const isHero = variant === "hero";
 
   return (
     <div
-      className={`relative overflow-hidden ${rounded} ${className}`}
+      className={`overflow-hidden ${isHero ? "" : "relative"} ${rounded} ${className}`}
       style={{
         background: `radial-gradient(120% 100% at 85% 0%, ${HUE_GLOW[hue]}, transparent 60%), linear-gradient(150deg, var(--surface-2), var(--bg))`,
+        boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.06)",
       }}
     >
       <div
@@ -37,18 +40,24 @@ export function SuiteVisual({ hue, rounded = "rounded-2xl", className = "" }: Su
         style={{ backgroundImage: GRAIN }}
       />
       <Icon
-        className="absolute -bottom-4 -right-4 opacity-[0.14]"
+        className={`absolute opacity-[0.14] ${isHero ? "-bottom-8 -right-8" : "-bottom-4 -right-4"}`}
         color="var(--ink)"
-        size={128}
-        strokeWidth={1}
+        size={isHero ? 220 : 128}
+        strokeWidth={0.75}
       />
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.18) 100%)",
+          background: isHero
+            ? "linear-gradient(180deg, rgba(0,0,0,0.05) 0%, transparent 32%, transparent 55%, rgba(0,0,0,0.55) 100%)"
+            : "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.18) 100%)",
         }}
       />
+      {isHero && (
+        <span className="absolute bottom-10 left-5 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/60">
+          Bali Motel
+        </span>
+      )}
     </div>
   );
 }

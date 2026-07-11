@@ -1,8 +1,7 @@
-import { Calendar, Clock } from "lucide-react";
+import { Calendar, ChevronLeft, Clock, Star } from "lucide-react";
 import { SuiteVisual } from "../components/SuiteVisual";
-import { ScreenHeader } from "../components/ScreenHeader";
-import { Chip } from "../components/Chip";
-import { StarRating } from "../components/StarRating";
+import { GlassButton, GlassChip } from "../components/Glass";
+import { AmenityToken } from "../components/AmenityToken";
 import { BottomBar, PrimaryButton } from "../components/BottomBar";
 import { AMENITY_META } from "../data/amenities";
 import { AGORA_DURACAO_HORAS } from "../config";
@@ -33,51 +32,53 @@ export function DetailScreen({
   const canContinue = flow === "agora" || (date !== "" && time !== "");
 
   return (
-    <div className="flex min-h-svh flex-col">
-      <ScreenHeader title={suite.name} onBack={onBack} />
-
-      <main className="flex-1 overflow-y-auto px-5 pb-6">
-        <SuiteVisual hue={suite.hue} className="h-56 w-full" />
-
-        <div className="mt-4 flex items-center justify-between">
-          <span
-            className="rounded-full px-2.5 py-1 text-[11px] font-medium"
-            style={{ background: "var(--surface-2)", color: "var(--ink-muted)" }}
-          >
-            {suite.tag}
-          </span>
-          <StarRating rating={suite.rating} />
+    <div className="screen-enter flex min-h-svh flex-col" style={{ background: "var(--bg)" }}>
+      <div className="relative h-[42vh] min-h-[280px] w-full shrink-0">
+        <SuiteVisual hue={suite.hue} variant="hero" className="absolute inset-0" rounded="rounded-none" />
+        <div className="absolute inset-x-5 top-[max(1.25rem,env(safe-area-inset-top))] flex items-center justify-between">
+          <GlassButton ariaLabel="Voltar" onClick={onBack}>
+            <ChevronLeft size={20} />
+          </GlassButton>
+          <GlassChip>
+            <Star size={12} fill="currentColor" />
+            {suite.rating.toFixed(1)}
+          </GlassChip>
         </div>
+      </div>
 
-        <h2 className="mt-3 font-display text-2xl font-medium" style={{ color: "var(--ink)" }}>
+      <main
+        className="relative -mt-6 flex-1 overflow-y-auto rounded-t-[28px] px-5 pb-6 pt-6"
+        style={{ background: "var(--bg)", boxShadow: "var(--shadow-lift)" }}
+      >
+        <span
+          className="text-[11px] font-semibold uppercase tracking-[0.2em]"
+          style={{ color: "var(--accent)" }}
+        >
+          {suite.tag}
+        </span>
+        <h2 className="mt-2 font-display text-[28px] font-medium leading-tight" style={{ color: "var(--ink)" }}>
           {suite.name}
         </h2>
-        <p className="mt-2 text-[15px] leading-relaxed" style={{ color: "var(--ink-muted)" }}>
+        <p className="mt-3 text-[15px] leading-relaxed" style={{ color: "var(--ink-muted)" }}>
           {suite.description}
         </p>
 
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-6 flex gap-4 overflow-x-auto pb-1">
           {suite.amenities.map((id) => {
             const meta = AMENITY_META[id];
-            const Icon = meta.icon;
-            return (
-              <Chip key={id}>
-                <Icon size={13} />
-                {meta.label}
-              </Chip>
-            );
+            return <AmenityToken key={id} icon={meta.icon} label={meta.label} />;
           })}
         </div>
 
         {flow === "agendar" && (
-          <div className="mt-6">
-            <h3 className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
+          <div className="mt-7">
+            <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em]" style={{ color: "var(--ink-muted)" }}>
               Data e horário
             </h3>
             <div className="mt-3 grid grid-cols-2 gap-3">
               <label
-                className="flex items-center gap-2 rounded-2xl border px-4 py-3"
-                style={{ borderColor: "var(--line)", background: "var(--surface)" }}
+                className="flex items-center gap-2 rounded-2xl border px-4 py-3.5"
+                style={{ borderColor: "var(--line)", background: "var(--surface)", boxShadow: "var(--shadow-card)" }}
               >
                 <Calendar size={16} color="var(--ink-muted)" />
                 <input
@@ -89,8 +90,8 @@ export function DetailScreen({
                 />
               </label>
               <label
-                className="flex items-center gap-2 rounded-2xl border px-4 py-3"
-                style={{ borderColor: "var(--line)", background: "var(--surface)" }}
+                className="flex items-center gap-2 rounded-2xl border px-4 py-3.5"
+                style={{ borderColor: "var(--line)", background: "var(--surface)", boxShadow: "var(--shadow-card)" }}
               >
                 <Clock size={16} color="var(--ink-muted)" />
                 <input
@@ -106,13 +107,13 @@ export function DetailScreen({
         )}
 
         <div
-          className="mt-6 flex items-center justify-between rounded-2xl border px-4 py-3.5"
-          style={{ borderColor: "var(--line)", background: "var(--surface)" }}
+          className="mt-7 flex items-center justify-between rounded-2xl border px-4 py-4"
+          style={{ borderColor: "var(--line)", background: "var(--surface)", boxShadow: "var(--shadow-card)" }}
         >
           <span className="text-sm" style={{ color: "var(--ink-muted)" }}>
             {flow === "agora" ? `Check-in agora · ${AGORA_DURACAO_HORAS}h` : "Pernoite"}
           </span>
-          <span className="font-display text-lg font-semibold" style={{ color: "var(--ink)" }}>
+          <span className="font-display text-xl font-semibold tabular-nums" style={{ color: "var(--ink)" }}>
             R$ {price}
           </span>
         </div>

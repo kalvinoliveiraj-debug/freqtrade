@@ -9,15 +9,15 @@ interface DoneScreenProps {
 
 export function DoneScreen({ booking, onNewBooking }: DoneScreenProps) {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center px-8 text-center">
+    <div className="screen-enter flex min-h-svh flex-col items-center justify-center px-8 text-center">
       <div
-        className="grid h-16 w-16 place-items-center rounded-full"
-        style={{ background: "var(--surface-2)" }}
+        className="grid h-20 w-20 place-items-center rounded-full border"
+        style={{ background: "var(--surface-2)", borderColor: "var(--line)", boxShadow: "var(--shadow-lift)" }}
       >
-        <CheckCircle2 size={32} color="var(--accent)" strokeWidth={1.5} />
+        <CheckCircle2 size={34} color="var(--accent)" strokeWidth={1.25} />
       </div>
 
-      <h1 className="mt-6 font-display text-2xl font-medium" style={{ color: "var(--ink)" }}>
+      <h1 className="mt-7 font-display text-[26px] font-medium" style={{ color: "var(--ink)" }}>
         Solicitação enviada
       </h1>
       <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--ink-muted)" }}>
