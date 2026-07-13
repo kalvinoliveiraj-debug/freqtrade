@@ -11,10 +11,8 @@ interface ConfirmScreenProps {
   date: string;
   time: string;
   name: string;
-  whatsapp: string;
   confirmMode: ConfirmMode;
   onNameChange: (value: string) => void;
-  onWhatsappChange: (value: string) => void;
   onConfirmModeChange: (mode: ConfirmMode) => void;
   onBack: () => void;
   onSend: (booking: Booking) => void;
@@ -26,16 +24,14 @@ export function ConfirmScreen({
   date,
   time,
   name,
-  whatsapp,
   confirmMode,
   onNameChange,
-  onWhatsappChange,
   onConfirmModeChange,
   onBack,
   onSend,
 }: ConfirmScreenProps) {
   const price = flow === "agora" ? suite.price.agora : suite.price.pernoite;
-  const canSend = name.trim() !== "" && (confirmMode === "mensagem" || whatsapp.trim() !== "");
+  const canSend = name.trim() !== "";
 
   function handleSend() {
     if (!canSend) return;
@@ -45,7 +41,6 @@ export function ConfirmScreen({
       date: flow === "agendar" ? date : null,
       time: flow === "agendar" ? time : null,
       name: name.trim(),
-      whatsapp: whatsapp.trim(),
       confirmMode,
     });
   }
@@ -81,17 +76,6 @@ export function ConfirmScreen({
               style={{ color: "var(--ink)" }}
             />
           </Field>
-          <Field label="WhatsApp">
-            <input
-              type="tel"
-              inputMode="tel"
-              value={whatsapp}
-              onChange={(e) => onWhatsappChange(e.target.value)}
-              placeholder="(85) 90000-0000"
-              className="w-full bg-transparent text-sm outline-none placeholder:opacity-60"
-              style={{ color: "var(--ink)" }}
-            />
-          </Field>
         </div>
 
         <div className="mt-6">
@@ -109,8 +93,8 @@ export function ConfirmScreen({
             <ModeOption
               active={confirmMode === "ligar"}
               icon={<PhoneCall size={18} />}
-              title="Pedir que me liguem"
-              description="Nosso atendente liga para confirmar os detalhes."
+              title="Ligar para o motel"
+              description="Discamos direto para o Bali Motel confirmar sua reserva."
               onClick={() => onConfirmModeChange("ligar")}
             />
           </div>

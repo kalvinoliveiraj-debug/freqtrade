@@ -1,5 +1,6 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Phone } from "lucide-react";
 import { PrimaryButton } from "../components/BottomBar";
+import { MOTEL_PHONE_DISPLAY, MOTEL_PHONE_TEL } from "../config";
 import type { Booking } from "../types";
 
 interface DoneScreenProps {
@@ -8,6 +9,8 @@ interface DoneScreenProps {
 }
 
 export function DoneScreen({ booking, onNewBooking }: DoneScreenProps) {
+  const isLigar = booking.confirmMode === "ligar";
+
   return (
     <div className="screen-enter flex min-h-svh flex-col items-center justify-center px-8 text-center">
       <div
@@ -18,13 +21,24 @@ export function DoneScreen({ booking, onNewBooking }: DoneScreenProps) {
       </div>
 
       <h1 className="mt-7 font-display text-[26px] font-medium" style={{ color: "var(--ink)" }}>
-        Solicitação enviada
+        {isLigar ? "Ligação iniciada" : "Solicitação enviada"}
       </h1>
       <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--ink-muted)" }}>
-        {booking.confirmMode === "mensagem"
-          ? `Sua reserva da ${booking.suite.name} foi enviada pelo WhatsApp. Aguarde a confirmação do nosso atendente.`
-          : `Recebemos seu pedido para a ${booking.suite.name}. Nosso atendente vai te ligar em breve para confirmar.`}
+        {isLigar
+          ? `Estamos discando para o Bali Motel para confirmar sua ${booking.suite.name}. Se a ligação não abriu, toque no número abaixo.`
+          : `Sua reserva da ${booking.suite.name} foi enviada pelo WhatsApp. Aguarde a confirmação do nosso atendente.`}
       </p>
+
+      {isLigar && (
+        <a
+          href={`tel:${MOTEL_PHONE_TEL}`}
+          className="mt-5 inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold"
+          style={{ borderColor: "var(--line)", background: "var(--surface)", color: "var(--ink)" }}
+        >
+          <Phone size={15} color="var(--accent)" />
+          {MOTEL_PHONE_DISPLAY}
+        </a>
+      )}
 
       <div className="mt-10 w-full">
         <PrimaryButton onClick={onNewBooking}>Fazer nova reserva</PrimaryButton>

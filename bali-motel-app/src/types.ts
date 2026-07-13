@@ -30,6 +30,5 @@ export interface Booking {
   date: string | null;
   time: string | null;
   name: string;
-  whatsapp: string;
   confirmMode: ConfirmMode;
 }

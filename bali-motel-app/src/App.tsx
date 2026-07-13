@@ -4,6 +4,7 @@ import { DetailScreen } from "./screens/DetailScreen";
 import { ConfirmScreen } from "./screens/ConfirmScreen";
 import { DoneScreen } from "./screens/DoneScreen";
 import { buildWhatsappLink } from "./utils/whatsapp";
+import { MOTEL_PHONE_TEL } from "./config";
 import type { Booking, ConfirmMode, Flow, Screen, Suite } from "./types";
 
 function App() {
@@ -13,7 +14,6 @@ function App() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
   const [confirmMode, setConfirmMode] = useState<ConfirmMode>("mensagem");
   const [booking, setBooking] = useState<Booking | null>(null);
 
@@ -23,7 +23,6 @@ function App() {
     setDate("");
     setTime("");
     setName("");
-    setWhatsapp("");
     setConfirmMode("mensagem");
     setBooking(null);
   }
@@ -32,6 +31,8 @@ function App() {
     setBooking(finishedBooking);
     if (finishedBooking.confirmMode === "mensagem") {
       window.open(buildWhatsappLink(finishedBooking), "_blank", "noopener,noreferrer");
+    } else {
+      window.location.href = `tel:${MOTEL_PHONE_TEL}`;
     }
     setScreen("done");
   }
@@ -72,10 +73,8 @@ function App() {
         date={date}
         time={time}
         name={name}
-        whatsapp={whatsapp}
         confirmMode={confirmMode}
         onNameChange={setName}
-        onWhatsappChange={setWhatsapp}
         onConfirmModeChange={setConfirmMode}
         onBack={() => setScreen("detail")}
         onSend={handleSend}
