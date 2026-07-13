@@ -20,7 +20,7 @@ Abra `http://localhost:5173`. O layout é mobile-first — use as devtools do na
 
 ## Antes de publicar
 
-1. **Número do WhatsApp real**: edite `src/config.ts` e troque `WHATSAPP_NUMBER` pelo número real do motel, em formato internacional só com dígitos (ex: `5585999998888`).
+1. **Número do WhatsApp real** (pendente): edite `src/config.ts` e troque `WHATSAPP_NUMBER` pelo número de *celular* com WhatsApp do motel, em formato internacional só com dígitos (ex: `5585999998888`). O fixo (85) 3278-5005 já está configurado em `MOTEL_PHONE_TEL`/`MOTEL_PHONE_DISPLAY` e é usado no fluxo "Ligar para o motel" — mas esse fixo não recebe WhatsApp, então o `WHATSAPP_NUMBER` continua um placeholder até você passar o número certo.
 2. **Fotos das suítes**: as suítes hoje usam ilustrações geradas (gradiente + textura + ícone) em `src/components/SuiteVisual.tsx`. Troque por fotos reais quando disponíveis — cada suíte tem um `hue` (`gold`, `teal`, `moss`) em `src/data/suites.ts` que pode virar uma imagem própria.
 3. **Preços e descrições**: ajuste em `src/data/suites.ts`.
 4. **Tema visual**: o app suporta 3 paletas alternáveis (ícone de paleta no canto superior direito da Home): Tropical Refinado, Romance Quente e Luxo Noturno. A escolha do usuário fica salva no navegador. Para fixar um único tema em produção, defina o `data-theme` fixo em `index.html` ou remova o `ThemeSwitcher` da Home.
